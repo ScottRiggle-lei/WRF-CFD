@@ -1,0 +1,51 @@
+&share
+ wrf_core = 'ARW',
+ max_dom = 3,
+ start_date = '2022-02-19_00:00:00','2022-02-19_00:00:00','2022-02-19_00:00:00',
+ end_date   = '2022-02-20_12:00:00','2022-02-20_12:00:00','2022-02-20_12:00:00',
+ interval_seconds = 21600,
+ io_form_geogrid = 2,
+/
+
+&geogrid
+ parent_id         =   1,   1,  2,
+ parent_grid_ratio =   1,   3,  3,
+ i_parent_start    =   0,  34,  41,
+ j_parent_start    =   0,  34,  41,
+ 
+ e_we              =  106,  115,  124
+ e_sn              =  106,  115,  124
+ !
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!! IMPORTANT NOTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ ! The default datasets used to produce the MAXSNOALB and ALBEDO12M
+ ! fields have changed in WPS v4.0. These fields are now interpolated
+ ! from MODIS-based datasets.
+ !
+ ! To match the output given by the default namelist.wps in WPS v3.9.1,
+ ! the following setting for geog_data_res may be used:
+ !
+ ! geog_data_res = 'maxsnowalb_ncep+albedo_ncep+default', 'maxsnowalb_ncep+albedo_ncep+default', 
+ !
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!! IMPORTANT NOTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !
+ geog_data_res = 'shenzhen', 'shenzhen', 'shenzhen',
+ dx = 900, 
+ dy = 900, 
+ map_proj = 'mercator',
+ ref_lat   =  22.533333,
+ ref_lon   = 114.15,
+ truelat1  =  22.533333,
+ truelat2  =  22.533333,
+ stand_lon = 114.15,
+ geog_data_path = '/home/user/WRFV4/GEOG/',
+/
+
+&ungrib
+ out_format = 'WPS',
+ prefix = 'FILE',
+/
+
+&metgrid
+ fg_name = 'FILE'
+ io_form_metgrid = 2, 
+/
