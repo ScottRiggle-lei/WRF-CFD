@@ -1,1 +1,2 @@
-本项目主要是针对香港某气象站（45032）风速预测的仿真和预测，其中两个namelist.**文件是中尺度WRF模式的设置，然后四个*.py文件是提取WRF的边界，并输出为txt文件。
+This project focuses on the simulation and prediction of wind speed at a meteorological station in Hong Kong (Station ID: 45032). 
+The two namelist.* files contain the configuration settings for the mesoscale WRF model. Additionally, the four .py scripts are used to extract boundary condition data from the WRF output and export it in .txt format.
